@@ -5,10 +5,10 @@ public class RadixSort{
   }
 
   public static int length(int n){
-    return 0;
+    return (int)(Math.log10(n));
   }
 
   public static void merge(MyLinkedList original, MyLinkedList[] buckets){
-    
+
   }
 }
