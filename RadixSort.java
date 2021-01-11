@@ -1,7 +1,8 @@
 import java.lang.Math;
 public class RadixSort{
   public static int nth(int n, int col){
-    return (int)(n % Math.pow(10, col+1));
+    int digit = (int)(n % Math.pow(10, col+1));
+    return (int)(digit / Math.pow(10,col));
   }
 
   public static int length(int n){
