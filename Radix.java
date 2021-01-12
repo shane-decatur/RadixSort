@@ -14,4 +14,11 @@ public class Radix{
       original.extend(buckets[i]);
     }
   }
+
+  public static void radixSortSimple(SortableLinkedList data){
+    SortableLinkedList[] buckets = new SortableLinkedList[10];
+    for (int i = 0; i < 10; i++){
+      buckets[i] = new SortableLinkedList();
+    }
+  }
 }
