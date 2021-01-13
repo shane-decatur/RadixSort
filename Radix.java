@@ -1,4 +1,3 @@
-import java.lang.Math;
 public class Radix{
   public static int nth(int n, int col){
     int digit = (int)(n % Math.pow(10, col+1));
@@ -15,10 +14,58 @@ public class Radix{
     }
   }
 
+  public static int maxDigit(SortableLinkedList data){
+    int max = 0;
+    for (int i = 0; i < data.size(); i++){
+      if (data.get(i) > max) max = data.get(i);
+    }
+    return length(max);
+  }
+
   public static void radixSortSimple(SortableLinkedList data){
     SortableLinkedList[] buckets = new SortableLinkedList[10];
     for (int i = 0; i < 10; i++){
       buckets[i] = new SortableLinkedList();
     }
+    for (int j = 0; j < maxDigit(data); j++){
+      for (int i = 0; i < data.size(); i++){
+        if (nth(data.get(i), j) == 0) buckets[0].add(data.get(i));
+        if (nth(data.get(i), j) == 1) buckets[1].add(data.get(i));
+        if (nth(data.get(i), j) == 2) buckets[2].add(data.get(i));
+        if (nth(data.get(i), j) == 3) buckets[3].add(data.get(i));
+        if (nth(data.get(i), j) == 4) buckets[4].add(data.get(i));
+        if (nth(data.get(i), j) == 5) buckets[5].add(data.get(i));
+        if (nth(data.get(i), j) == 6) buckets[6].add(data.get(i));
+        if (nth(data.get(i), j) == 7) buckets[7].add(data.get(i));
+        if (nth(data.get(i), j) == 8) buckets[8].add(data.get(i));
+        if (nth(data.get(i), j) == 9) buckets[9].add(data.get(i));
+        data.remove(i);
+        i--;
+      }
+      merge(data,buckets);
+    }
+  }
+
+  public static void main(String[] args){
+    SortableLinkedList a = new SortableLinkedList();
+    a.add(12);
+    a.add(34);
+    a.add(42);
+    a.add(32);
+    a.add(44);
+    a.add(41);
+    a.add(34);
+    a.add(11);
+    a.add(32);
+    a.add(23);
+    a.add(87);
+    a.add(50);
+    a.add(77);
+    a.add(58);
+    a.add(8);
+    System.out.println(a);
+    System.out.println();
+    radixSortSimple(a);
+    System.out.println(a);
   }
 }
