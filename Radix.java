@@ -42,25 +42,7 @@ public class Radix{
       for (int i = 0; i < dataLength; i++){
         int temp = data.remove(0);
         if (j == 0 && length(temp) > passes) passes = length(temp);
-        if (nth(temp, j) == -9) buckets[0].add(temp);
-        if (nth(temp, j) == -8) buckets[1].add(temp);
-        if (nth(temp, j) == -7) buckets[2].add(temp);
-        if (nth(temp, j) == -6) buckets[3].add(temp);
-        if (nth(temp, j) == -5) buckets[4].add(temp);
-        if (nth(temp, j) == -4) buckets[5].add(temp);
-        if (nth(temp, j) == -3) buckets[6].add(temp);
-        if (nth(temp, j) == -2) buckets[7].add(temp);
-        if (nth(temp, j) == -1) buckets[8].add(temp);
-        if (nth(temp, j) == 0) buckets[9].add(temp);
-        if (nth(temp, j) == 1) buckets[10].add(temp);
-        if (nth(temp, j) == 2) buckets[11].add(temp);
-        if (nth(temp, j) == 3) buckets[12].add(temp);
-        if (nth(temp, j) == 4) buckets[13].add(temp);
-        if (nth(temp, j) == 5) buckets[14].add(temp);
-        if (nth(temp, j) == 6) buckets[15].add(temp);
-        if (nth(temp, j) == 7) buckets[16].add(temp);
-        if (nth(temp, j) == 8) buckets[17].add(temp);
-        if (nth(temp, j) == 9) buckets[18].add(temp);
+        buckets[nth(temp,j)+9].add(temp);
       }
       merge(data,buckets);
     }
