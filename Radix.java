@@ -45,4 +45,37 @@ public class Radix{
       merge(data,buckets);
     }
   }
+
+  public static void radixSort(SortableLinkedList data){
+    SortableLinkedList[] buckets = new SortableLinkedList[19];
+    for (int i = 0; i < 19; i++){
+      buckets[i] = new SortableLinkedList();
+    }
+    for (int j = 0; j < maxDigit(data); j++){
+      for (int i = 0; i < data.size(); i++){
+        if (nth(data.get(i), j) == -9) buckets[0].add(data.get(i));
+        if (nth(data.get(i), j) == -8) buckets[1].add(data.get(i));
+        if (nth(data.get(i), j) == -7) buckets[2].add(data.get(i));
+        if (nth(data.get(i), j) == -6) buckets[3].add(data.get(i));
+        if (nth(data.get(i), j) == -5) buckets[4].add(data.get(i));
+        if (nth(data.get(i), j) == -4) buckets[5].add(data.get(i));
+        if (nth(data.get(i), j) == -3) buckets[6].add(data.get(i));
+        if (nth(data.get(i), j) == -2) buckets[7].add(data.get(i));
+        if (nth(data.get(i), j) == -1) buckets[8].add(data.get(i));
+        if (nth(data.get(i), j) == 0) buckets[9].add(data.get(i));
+        if (nth(data.get(i), j) == 1) buckets[10].add(data.get(i));
+        if (nth(data.get(i), j) == 2) buckets[11].add(data.get(i));
+        if (nth(data.get(i), j) == 3) buckets[12].add(data.get(i));
+        if (nth(data.get(i), j) == 4) buckets[13].add(data.get(i));
+        if (nth(data.get(i), j) == 5) buckets[14].add(data.get(i));
+        if (nth(data.get(i), j) == 6) buckets[15].add(data.get(i));
+        if (nth(data.get(i), j) == 7) buckets[16].add(data.get(i));
+        if (nth(data.get(i), j) == 8) buckets[17].add(data.get(i));
+        if (nth(data.get(i), j) == 9) buckets[18].add(data.get(i));
+        data.remove(i);
+        i--;
+      }
+      merge(data,buckets);
+    }
+  }
 }
